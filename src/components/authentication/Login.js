@@ -3,34 +3,26 @@ import { Button, Divider, Form, Grid, Segment, Modal } from 'semantic-ui-react'
 
 export default class Login extends Component {
 
-    // Set initial state
     state = {
        username: "",
-        password: ""
+        password: "",
+        email: ""
     }
 
-    // Update state whenever an input field is edited
     handleFieldChange = (event) => {
         const stateToChange = {}
         stateToChange[event.target.id] = event.target.value
         this.setState(stateToChange)
     }
 
-    // Simplistic handler for login submit
     handleLogin = (event) => {
         event.preventDefault()
-
-        /*
-            For now, just store theusername and password that
-            the customer enters into local storage.
-        */
-        sessionStorage.setItem(
-            "credentials",
-            JSON.stringify({
-               username: this.state.username,
-                password: this.state.password
-            })
-        )
+        this.props.users.filter(user => {
+            if (user.user_name === this.state.username && user.password === this.state.password){
+              sessionStorage.setItem("id", user.id)
+              this.props.history.push("/")
+            }
+        })
     }
 
     render() {
