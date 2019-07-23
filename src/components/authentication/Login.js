@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Button, Divider, Form, Grid, Segment, Modal } from 'semantic-ui-react'
+import { Button, Divider, Form, Grid, Segment, Modal, ModalContent } from 'semantic-ui-react'
 
 export default class Login extends Component {
 
@@ -18,9 +18,15 @@ export default class Login extends Component {
     handleLogin = (event) => {
         event.preventDefault()
         this.props.users.filter(user => {
-            if (user.user_name === this.state.username && user.password === this.state.password){
+            if(this.state.username === "" || this.state.password === ""){
+                alert("Please fill in username and password")
+            }
+            else if (user.user_name === this.state.username && user.password === this.state.password){
               sessionStorage.setItem("id", user.id)
               this.props.history.push("/")
+            }
+            else{
+                  alert("Password or username does not match. Try again or register!")
             }
         })
     }
