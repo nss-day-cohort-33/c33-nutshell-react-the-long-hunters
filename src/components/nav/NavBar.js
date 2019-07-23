@@ -7,6 +7,7 @@ import {
     Image,
     Menu
   } from 'semantic-ui-react'
+import acorn from "./acorn.svg"
 
 
 class NavBar extends Component {
@@ -16,7 +17,7 @@ class NavBar extends Component {
         <Menu fixed='top' inverted>
             <Container>
                 <Menu.Item as={Link} to="/" header>
-                <Image size='mini' src='/logo.png' style={{ marginRight: '1.5em' }} />Dashboard
+                <Image size='mini' src={acorn} style={{ marginRight: '1.5em' }} />Dashboard
                 </Menu.Item>
                 <Dropdown item simple text=''>
                 <Dropdown.Menu>
