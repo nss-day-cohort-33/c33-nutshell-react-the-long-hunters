@@ -64,13 +64,13 @@ export default class ApplicationViews extends Component {
   };
 
   render() {
+    console.log(this.state)
     return (
       <React.Fragment>
-        <Route path="/login" component={Login} />
+        <Route path="/login" render={props => { return <Login {...props} users={this.state.users} /> }} />
         <Route
           exact path="/" render={props => {
             return <Dashboard/>
-            // Remove null and return the component which will show news articles
           }}
         />
 
