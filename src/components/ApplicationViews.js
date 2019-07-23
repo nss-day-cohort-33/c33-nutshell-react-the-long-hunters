@@ -2,8 +2,11 @@ import { Route } from "react-router-dom";
 import React, { Component } from "react";
 import Dashboard from "./dashboard/Dashboard";
 import APIManager from "./modules/APIManager";
+import Login from "./authentication/Login"
 
 export default class ApplicationViews extends Component {
+  isAuthenticated = () => sessionStorage.getItem("credentials") !== null
+
   state = {
     users: [],
     friends: [],
@@ -63,7 +66,7 @@ export default class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
-
+        <Route path="/login" component={Login} />
         <Route
           exact path="/" render={props => {
             return <Dashboard/>
