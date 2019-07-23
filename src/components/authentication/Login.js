@@ -4,9 +4,9 @@ import { Button, Divider, Form, Grid, Segment, Modal, ModalContent } from 'seman
 export default class Login extends Component {
 
     state = {
-       username: "",
-        password: "",
-        email: ""
+       user_name: "",
+       email: "",
+       password: ""
     }
 
     handleFieldChange = (event) => {
@@ -31,6 +31,26 @@ export default class Login extends Component {
         })
     }
 
+    handleRegister = (event) => {
+        event.preventDefault()
+        this.props.users.filter(user => {
+            if(this.state.username === "" || this.state.password === "" || this.state.email === ""){
+                alert("Please fill in username, email, and password")
+            }
+            else if(user.user_name === this.state.username || user.email === this.state.email){
+                alert("Username or email is already in use.")
+            }
+        })
+        this.props.addUser(this.state, "users")
+        .then(this.props.users.filter(user => {
+            if(this.state.user_name === user.user_name) {
+            sessionStorage.setItem("id", user.id)
+            }
+        }))
+        this.props.history.push("/")
+    }
+
+
     render() {
         return (
 
@@ -38,7 +58,7 @@ export default class Login extends Component {
                 <Grid columns={2} relaxed='very' stackable>
                 <Grid.Column>
                     <Form onSubmit={this.handleLogin}>
-                    <Form.Input onChange={this.handleFieldChange} id="username" icon='user' iconPosition='left' label='Username' placeholder='Username' />
+                    <Form.Input onChange={this.handleFieldChange} id="user_name" icon='user' iconPosition='left' label='Username' placeholder='Username' />
                     <Form.Input onChange={this.handleFieldChange} id="password" icon='lock' iconPosition='left' label='Password' type='password' />
 
                     <Button content='Login' primary />
@@ -49,8 +69,8 @@ export default class Login extends Component {
                 <Modal trigger={<Button content='Sign up' icon='signup' size='big' />} >
                     <Modal.Header>Register</Modal.Header>
                     <Modal.Content>
-                        <Form onSubmit={this.handleLogin}>
-                            <Form.Input onChange={this.handleFieldChange} id="username" icon='user' iconPosition='left' label='Username' placeholder='Username' />
+                        <Form onSubmit={this.handleRegister}>
+                            <Form.Input onChange={this.handleFieldChange} id="user_name" icon='user' iconPosition='left' label='Username' placeholder='Username' />
                             <Form.Input onChange={this.handleFieldChange} id="email" icon='user' iconPosition='left' label='Email' placeholder='Email' />
                             <Form.Input onChange={this.handleFieldChange} id="password" icon='lock' iconPosition='left' label='Password' type='password' />
                             <Button content='Register' primary />
@@ -63,26 +83,6 @@ export default class Login extends Component {
                 <Divider vertical>Or</Divider>
             </Segment>
 
-            // <form onSubmit={this.handleLogin}>
-            //     <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-            //     <label htmlFor="inputEmail">
-            //        username address
-            //     </label>
-            //     <input onChange={this.handleFieldChange} type="email"
-            //            id="email"
-            //            placeholder="Email address"
-            //            required="" autoFocus="" />
-            //     <label htmlFor="inputPassword">
-            //         Password
-            //     </label>
-            //     <input onChange={this.handleFieldChange} type="password"
-            //            id="password"
-            //            placeholder="Password"
-            //            required="" />
-            //     <button type="submit">
-            //         Sign in
-            //     </button>
-            // </form>
         )
     }
 }
