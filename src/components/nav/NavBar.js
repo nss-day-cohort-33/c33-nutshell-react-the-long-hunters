@@ -8,9 +8,17 @@ import {
     Menu
   } from 'semantic-ui-react'
 import acorn from "./acorn.svg"
+import { link } from "fs";
 
 
 class NavBar extends Component {
+
+    handleLogout = history => () => {
+        sessionStorage.clear()
+        history.push('/login')
+    };
+
+
     render() {
         return (
 
@@ -22,7 +30,7 @@ class NavBar extends Component {
                 <Dropdown item simple text=''>
                 <Dropdown.Menu>
                     <Dropdown.Item as={Link} to="/friends">Friends</Dropdown.Item>
-                    <Dropdown.Item as={Link} to="/logout">Logout</Dropdown.Item>
+                    <Dropdown.Item as={Link} to="/login">Logout</Dropdown.Item>
                 </Dropdown.Menu>
                 </Dropdown>
             </Container>
