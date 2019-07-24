@@ -46,6 +46,20 @@
       "date_due": "2019-07-16",
       "complete": false,
       "id": 1
+    },
+    {
+      "userId": 1,
+      "task": "Re-organize pokemon cards",
+      "date_due": "2019-07-16",
+      "complete": false,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "task": "Call mom",
+      "date_due": "2019-07-16",
+      "complete": false,
+      "id": 3
     }
   ],
   "events": [

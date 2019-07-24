@@ -66,10 +66,12 @@ export default class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
-        <Route path="/login" render={props => { return <Login {...props} users={this.state.users} addUser={this.addToAPI} /> }} />
+        <Route path="/login" render={props => { 
+          return <Login {...props} users={this.state.users} addUser={this.addToAPI} /> 
+          }} />
         <Route
           exact path="/" render={props => {
-            return <Dashboard messages={this.state.messages}/>
+            return <Dashboard messages={this.state.messages} tasks={this.state.tasks}/>
           }}
         />
 
