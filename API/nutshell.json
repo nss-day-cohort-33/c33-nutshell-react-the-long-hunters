@@ -7,10 +7,22 @@
       "id": 1
     },
     {
-      "user_name": "boo",
-      "password": "mom",
-      "email": "boo",
+      "user_name": "SNoh",
+      "email": "sydneycnoh@gmail.com",
+      "password": "tip",
       "id": 2
+    },
+    {
+      "user_name": "pepper",
+      "email": "pepper@gmail.com",
+      "password": "tip",
+      "id": 3
+    },
+    {
+      "user_name": "lemon",
+      "email": "lemon@gmail.com",
+      "password": "tip",
+      "id": 4
     }
   ],
   "friends": [

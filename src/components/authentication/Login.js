@@ -6,8 +6,8 @@ export default class Login extends Component {
 
     state = {
        user_name: "",
-        password: "",
-        email: ""
+       email: "",
+       password: ""
     }
 
     handleFieldChange = (event) => {
