@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import { Button, Divider, Form, Grid, Segment, Modal, ModalContent } from 'semantic-ui-react'
+import { Button, Divider, Form, Grid, Segment, Modal } from 'semantic-ui-react'
+import "./Login.css"
 
 export default class Login extends Component {
 
@@ -17,44 +18,42 @@ export default class Login extends Component {
 
     handleLogin = (event) => {
         event.preventDefault()
-        this.props.users.filter(user => {
-            if(this.state.username === "" || this.state.password === ""){
-                alert("Please fill in username and password")
-            }
-            else if (user.user_name === this.state.username && user.password === this.state.password){
-              sessionStorage.setItem("id", user.id)
-              this.props.history.push("/")
-            }
-            else{
-                  alert("Password or username does not match. Try again or register!")
-            }
-        })
-    }
+        if(this.state.user_name === "" || this.state.password === ""){
+            alert("Please fill in username and password")
+        }
+        let userMatch = this.props.users.find(user =>(user.user_name === this.state.user_name && user.password === this.state.password))
+        if(userMatch !== undefined){
+            sessionStorage.setItem("id", userMatch.id)
+            this.props.history.push("/")
+        }
+        else{
+              alert("Password or username does not match. Try again or register!")
+        }
+        }
+
 
     handleRegister = (event) => {
         event.preventDefault()
-        this.props.users.filter(user => {
-            if(this.state.username === "" || this.state.password === "" || this.state.email === ""){
-                alert("Please fill in username, email, and password")
-            }
-            else if(user.user_name === this.state.username || user.email === this.state.email){
-                alert("Username or email is already in use.")
-            }
-        })
-        this.props.addUser(this.state, "users")
-        .then(this.props.users.filter(user => {
-            if(this.state.user_name === user.user_name) {
-            sessionStorage.setItem("id", user.id)
-            }
-        }))
-        this.props.history.push("/")
-    }
-
+        let userMatch = this.props.users.filter(user =>
+            (user.user_name === this.state.user_name || user.email === this.state.email))
+        if(this.state.user_name === "" || this.state.password === "" || this.state.email === ""){
+            alert("Please fill in username, email, and password")
+        }
+        else if(userMatch.length === 0){
+            this.props.addUser(this.state, "users")
+                .then( event => {
+                    let newUserMatch = this.props.users.filter(user => (user.user_name === this.state.user_name))
+                    sessionStorage.setItem("id", newUserMatch[0].id)
+                    this.props.history.push("/")
+                })
+        }else{
+            alert("Username or email is already in use.")
+    }}
 
     render() {
         return (
 
-            <Segment placeholder>
+            <Segment placeholder className="login">
                 <Grid columns={2} relaxed='very' stackable>
                 <Grid.Column>
                     <Form onSubmit={this.handleLogin}>
@@ -66,7 +65,7 @@ export default class Login extends Component {
                 </Grid.Column>
 
                 <Grid.Column verticalAlign='middle'>
-                <Modal trigger={<Button content='Sign up' icon='signup' size='big' />} >
+                <Modal size='tiny' trigger={<Button content='Sign up' icon='signup' size='big' />} >
                     <Modal.Header>Register</Modal.Header>
                     <Modal.Content>
                         <Form onSubmit={this.handleRegister}>
@@ -76,13 +75,12 @@ export default class Login extends Component {
                             <Button content='Register' primary />
                         </Form>
                     </Modal.Content>
-                </Modal>
+        </Modal>
                 </Grid.Column>
                 </Grid>
 
                 <Divider vertical>Or</Divider>
             </Segment>
-
         )
     }
 }
