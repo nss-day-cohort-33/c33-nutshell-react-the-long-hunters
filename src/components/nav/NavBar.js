@@ -11,6 +11,10 @@ import acorn from "./acorn.svg"
 
 
 class NavBar extends Component {
+
+handleLogout = (event)=>{
+    sessionStorage.clear()
+}
     render() {
         return (
 
@@ -19,10 +23,11 @@ class NavBar extends Component {
                 <Menu.Item as={Link} to="/" header>
                 <Image size='mini' src={acorn} style={{ marginRight: '1.5em' }} />Dashboard
                 </Menu.Item>
-                <Dropdown item simple text=''>
+                <Menu.Item header position='right' />
+                <Dropdown item simple text='' >
                 <Dropdown.Menu>
                     <Dropdown.Item as={Link} to="/friends">Friends</Dropdown.Item>
-                    <Dropdown.Item as={Link} to="/logout">Logout</Dropdown.Item>
+                    <Dropdown.Item as={Link} onClick={this.handleLogout} to="/login">Logout</Dropdown.Item>
                 </Dropdown.Menu>
                 </Dropdown>
             </Container>

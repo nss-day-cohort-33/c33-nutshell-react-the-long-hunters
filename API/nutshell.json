@@ -1,52 +1,58 @@
 {
-    "users": [
-        {
-          "user_name": "mom",
-          "email": "mom@hotmail.com",
-          "password": "mom",
-          "id": 1
-        }
-      ],
-      "friends": [
-        {
-          "user": 1,
-          "userId": 2,
-          "id": 1
-        }
-      ],
-      "messages": [
-        {
-          "userId": "1",
-          "message": "this is the best social media app ever!!!",
-          "id": 1
-        }
-      ],
-      "tasks": [
-        {
-          "userId": 1,
-          "task": "Mow the lawn",
-          "date_due": "2019-07-16",
-          "complete": false,
-          "id": 1
-        }
-      ],
-      "events": [
-        {
-          "userId": 1,
-          "event_name": "4th of July party",
-          "event_date": "2019-07-04",
-          "event_location": "Downtown",
-          "id": 1
-        }
-      ],
-      "news": [
-        {
-          "userId": 1,
-          "news_url": "https://www.newser.com/story/269443/turns-out-a-cop-station-is-a-bad-place-to-steal-a-bike.html",
-          "news_title": "Alleged Theft at Cop Station Goes as Well as You'd Expect",
-          "news_synopsis": "Would-be bike thief caught within seconds: police",
-          "news_time": 1562693385246,
-          "id": 1
-        }
-      ]
+  "users": [
+    {
+      "user_name": "mom",
+      "email": "mom@hotmail.com",
+      "password": "mom",
+      "id": 1
+    },
+    {
+      "user_name": "boo",
+      "password": "mom",
+      "email": "boo",
+      "id": 2
+    }
+  ],
+  "friends": [
+    {
+      "user": 1,
+      "userId": 2,
+      "id": 1
+    }
+  ],
+  "messages": [
+    {
+      "userId": "1",
+      "message": "this is the best social media app ever!!!",
+      "id": 1
+    }
+  ],
+  "tasks": [
+    {
+      "userId": 1,
+      "task": "Mow the lawn",
+      "date_due": "2019-07-16",
+      "complete": false,
+      "id": 1
+    }
+  ],
+  "events": [
+    {
+      "userId": 1,
+      "event_name": "4th of July party",
+      "event_date": "2019-07-04",
+      "event_location": "Downtown",
+      "id": 1
+    }
+  ],
+  "news": [
+    {
+      "userId": 1,
+      "news_url": "https://www.newser.com/story/269443/turns-out-a-cop-station-is-a-bad-place-to-steal-a-bike.html",
+      "news_title": "Alleged Theft at Cop Station Goes as Well as You'd Expect",
+      "news_synopsis": "Would-be bike thief caught within seconds: police",
+      "news_time": 1562693385246,
+      "id": 1
+    }
+  ]
 }
