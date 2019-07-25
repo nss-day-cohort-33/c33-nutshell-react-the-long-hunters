@@ -1,3 +1,6 @@
+.ui.card>.content{
+    margin-top: 100px;}
+    
 .div.column.eventsColumn:first-child {
     background-color: lightseagreen;
     font-style: bold;
