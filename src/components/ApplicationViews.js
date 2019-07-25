@@ -49,7 +49,7 @@ export default class ApplicationViews extends Component {
  APIManager.delete(item, resource)
    .then(APIManager.all(resource))
    .then(item => {
-     this.props.history.push(`/${resource}`);
+    //  this.props.history.push(`/`);
      this.setState({ [resource]: item });
    });
 
@@ -71,7 +71,7 @@ export default class ApplicationViews extends Component {
           }} />
         <Route
           exact path="/" render={props => {
-            return <Dashboard messages={this.state.messages} tasks={this.state.tasks}/>
+            return <Dashboard {...props} messages={this.state.messages} tasks={this.state.tasks} addToAPI={this.addToAPI} deleteFromAPI={this.deleteFromAPI}/>
           }}
         />
 

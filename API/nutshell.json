@@ -23,6 +23,12 @@
       "email": "lemon@gmail.com",
       "password": "tip",
       "id": 4
+    },
+    {
+      "user_name": "Tarentino",
+      "email": "ter@gmail.com",
+      "password": "tip",
+      "id": 5
     }
   ],
   "friends": [
@@ -49,17 +55,24 @@
     },
     {
       "userId": 1,
-      "task": "Re-organize pokemon cards",
-      "date_due": "2019-07-16",
-      "complete": false,
-      "id": 2
-    },
-    {
-      "userId": 1,
       "task": "Call mom",
       "date_due": "2019-07-16",
       "complete": false,
       "id": 3
+    },
+    {
+      "userId": "5",
+      "task": "paint garage",
+      "date_due": "2019-07-26",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "userId": "5",
+      "task": "High five Krystal again",
+      "date_due": "2019-07-25",
+      "completed": false,
+      "id": 5
     }
   ],
   "events": [

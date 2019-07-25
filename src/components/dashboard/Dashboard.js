@@ -4,40 +4,44 @@ import "./Dashboard.css"
 import TaskList from "../task/TaskList";
 
 export default class Dashboard extends Component{
-  render(){ 
 
-    state = {
-      userId: "",
-      task: "",
-      date_due: "",
-      completed: ""
-    };
-    
-    handleFieldChange = (event) => {
-      const stateToChange = {}
-      stateToChange[event.target.id] = event.target.value
-      this.setState(stateToChange)
-    }
+  state = {
+    userId: "",
+    task: "",
+    date_due: "",
+    completed: "",
+    open: false
+  };
+  
+  handleFieldChange = (event) => {
+    const stateToChange = {};
+    stateToChange[event.target.id] = event.target.value
+    this.setState(stateToChange)
+  };
 
-    constructNewAnimal = evt => {
-      evt.preventDefault();
-      if (this.state.employee === "") {
-        window.alert("Please select a caretaker");
-      } else {
-        const animal = {
-          userId: parseInt(this.state.employeeId),
-          task: this.state.animalName,
-          date_due: this.state.breed,
-          // Make sure the employeeId is saved to the database as a number since it is a foreign key.
-          completed: false
-        };
-        this.props
-          .addAnimal(animal, "animals")
-          .then(() => this.props.history.push("/"));
-      }
-    };
+    handleOpen = () => {
+      this.setState({ open: true })
+  }
 
+  handleAddTask = evt => {
+    evt.preventDefault();
+    if (this.state.task === "") {
+      window.alert("Please name your task.")
+      console.log("what", this.state);
+    } else {
+      const newTask = {
+        userId: sessionStorage.getItem("id"),
+        task: this.state.task,
+        date_due: this.state.date_due,
+        completed: false
+      };
+      this.props
+        .addToAPI(newTask, "tasks")
+        .then(() => this.setState({ open: false }))
+  }
+}
 
+  render() {
         return(
             <Segment placeholder className="login">
             <Grid columns={4} relaxed='very' stackable>
@@ -58,26 +62,27 @@ export default class Dashboard extends Component{
               </Container>
             </Grid.Column>
             <Grid.Column>
-              <Header>Tasks</Header> <Modal trigger={<Button content='Add' icon='plus square outline' size='mini' />}>
+              <Header>Tasks</Header> <Modal trigger={<Button content='Add' icon='plus square outline' size='mini' onClick={this.handleOpen} />} open={this.state.open}>
               <Modal.Header>Add A Task</Modal.Header>
               <Modal.Content>
-              <Form onSubmit={this.handleAddTask}>
-                  <Form.Input onChange={this.handleFieldChange} id="user_name" label='Task' placeholder='ex: Take Out Trash' />
-                  <Form.Input onChange={this.handleFieldChange} type="date" id="date" label='Date Due' />
-                  <Button content='Add' primary />
+              <Form>
+                  <Form.Input onChange={this.handleFieldChange} id="task" label='Task' placeholder='ex: Take Out Trash' />
+                  <Form.Input onChange={this.handleFieldChange} type="date" id="date_due" label='Date Due' />
+                  <Button content='Add' primary onClick={this.handleAddTask} />
               </Form>
               </Modal.Content>
             </Modal>
               <Container>
                 <TaskList
-                    key={this.props.tasks.id}
-                    tasks={this.props.tasks}
-                    {...this.props}
+                  key={this.props.tasks.id}
+                  tasks={this.props.tasks}
+                  deleteFromAPI={this.deleteFromAPI}
+                  {...this.props}
                 />
               </Container>
             </Grid.Column>
             </Grid>
         </Segment>
         )
-    }
+  }
 }
