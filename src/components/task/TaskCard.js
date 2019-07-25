@@ -8,11 +8,11 @@ export default class TaskList extends Component {
 
     state = {
         open: false,
-        id: this.props.task.id,
-        userId: parseInt(sessionStorage.getItem("id")),
-        task: this.state.task,
-        date_due: this.state.date_due,
-        completed: false,
+        // id: this.props.task.id,
+        // userId: parseInt(sessionStorage.getItem("id")),
+        // task: this.state.task,
+        // date_due: this.state.date_due,
+        // completed: false,
       };
   
   
