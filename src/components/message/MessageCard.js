@@ -44,7 +44,7 @@ export default class MessageCard extends Component {
         console.log(editedMessage)
         this.handleEditButton()
         this.props.updateAPI(editedMessage, "messages")
-        .then(() => this.props.history.push("/messages"))
+        .then(() => this.props.history.push("/"))
     }
 
 // componentDidMount() {

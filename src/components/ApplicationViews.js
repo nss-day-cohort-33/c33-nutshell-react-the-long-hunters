@@ -57,7 +57,7 @@ export default class ApplicationViews extends Component {
    .then(item => {
     //  this.props.history.push("/");
      this.setState({ [resource]: item });
-   });
+   }); //SN
 
    updateAPI = (item, resource) => {
     return APIManager.put(item, resource)
@@ -101,14 +101,18 @@ export default class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
-        <Route path="/login" render={props => { return <Login {...props} users={this.state.users} addUser={this.addToAPI} /> }} />
+        <Route path="/login" render={props => {
+          return <Login {...props} users={this.state.users} addUser={this.addToAPI} />
+          }} />
         <Route
           exact path="/" render={props =>{
             if(this.isAuthenticated()){
               let events = this.state.events.filter((event => event.userId === parseInt(sessionStorage.getItem("id"))))
+              let tasks = this.state.tasks.filter((task => task.userId === parseInt(sessionStorage.getItem("id"))))
               let news = this.state.news.filter((news=> news.userId === parseInt(sessionStorage.getItem("id")))).sort((a,b) => a.news_time - b.news_time)
-              return <Dashboard {...props} messages={this.state.messages}
-              events={events} news={news} deleteFromAPI={this.deleteFromAPI} deleteFromAPIEvent={this.deleteFromAPI} />
+              return <Dashboard {...props} messages={this.state.messages} users={this.state.users}
+              events={events} news={news} deleteFromAPI={this.deleteFromAPI} tasks={tasks} addToAPI={this.addToAPI} updateAPI={this.updateAPI} deleteFromAPIEvent={this.deleteFromAPIEvent}/>
+
           }else {
             return <Redirect to="./login" />;
           }}}
