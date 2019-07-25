@@ -33,7 +33,7 @@ export default class EventFormEdit extends Component {
             event_location: this.state.event_location
           };
 
-      this.props.updateAPI(editedEvent, "events")
+      this.props.updateAPIEvent(editedEvent, "events")
       .then(() => this.props.history.push("/"))
       }
     }

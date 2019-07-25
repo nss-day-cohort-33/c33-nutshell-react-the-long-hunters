@@ -18,7 +18,7 @@ export default class EventCard extends Component {
                     </List.Description>
                     <Button content="Delete" onClick={() => {
                         this.setState({ saveDisabled: true }, () =>
-                  this.props.deleteFromAPI(this.props.event.id, "events" )
+                  this.props.deleteFromAPIEvent(this.props.event.id, "events" )
                 );
               }} />
                     <Button content="Edit" onClick={() => {

@@ -85,9 +85,16 @@
     {
       "id": 4,
       "userId": 6,
-      "event_name": "My baby graduates from NSS-bring on the tears",
+      "event_name": "My baby graduates from NSS-bring on the tears!",
       "event_date": "2019-11-08",
       "event_location": "NSS"
+    },
+    {
+      "userId": 6,
+      "event_name": "Yo Momma Can Dance",
+      "event_date": "2019-07-25",
+      "event_location": "Broadway",
+      "id": 5
     }
   ],
   "news": [

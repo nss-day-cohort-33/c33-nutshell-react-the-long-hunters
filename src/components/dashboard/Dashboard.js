@@ -14,7 +14,7 @@ export default class Dashboard extends Component{
               <Container>
               </Container>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column className="eventsColumn">
               <Header textAlign='center'>Events</Header>
                 <Button content='Add Event' icon='plus square outline' position= 'center' size='mini' onClick={()=> this.props.history.push("/events/new")} />
                 <List divided relaxed>

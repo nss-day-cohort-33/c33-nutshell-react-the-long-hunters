@@ -40,10 +40,6 @@ export default class ApplicationViews extends Component {
         .then(() => this.setState(newState));
       }
 
-   currentUser = () => {
-     return sessionStorage.getItem("id")
-   }
-
   addToAPI = (item, resource) =>
   APIManager.post(item, resource)
  .then(() => APIManager.all(resource))
@@ -72,6 +68,35 @@ export default class ApplicationViews extends Component {
       });
   };
 
+  // for events
+  addToAPIEvent = (item, resource) =>
+  APIManager.post(item, resource)
+ .then(() => APIManager.getDatesFromApi(resource))
+ .then(item =>{
+     this.setState({
+     [resource]: item
+   })
+ }
+ );
+
+ deleteFromAPIEvent = (item, resource) =>
+ APIManager.delete(item, resource)
+   .then(APIManager.getDatesFromApi(resource))
+   .then(item => {
+    //  this.props.history.push("/");
+     this.setState({ [resource]: item });
+   });
+
+   updateAPIEvent = (item, resource) => {
+    return APIManager.put(item, resource)
+      .then(() => APIManager.getDatesFromApi(resource))
+      .then(item => {
+        this.setState({
+          [resource]: item
+        });
+      });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -82,7 +107,7 @@ export default class ApplicationViews extends Component {
               let events = this.state.events.filter((event => event.userId === parseInt(sessionStorage.getItem("id"))))
               let news = this.state.news.filter((news=> news.userId === parseInt(sessionStorage.getItem("id")))).sort((a,b) => a.news_time - b.news_time)
               return <Dashboard {...props} messages={this.state.messages}
-              events={events} news={news} deleteFromAPI={this.deleteFromAPI} />
+              events={events} news={news} deleteFromAPI={this.deleteFromAPI} deleteFromAPIEvent={this.deleteFromAPI} />
           }else {
             return <Redirect to="./login" />;
           }}}
@@ -97,7 +122,7 @@ export default class ApplicationViews extends Component {
         <Route
           path="/events/new" render={props => {
             return (
-              <EventForm {...props} addEvent={this.addToAPI} />
+              <EventForm {...props} addEvent={this.addToAPIEvent} />
             )
           }}
         />
@@ -107,7 +132,7 @@ export default class ApplicationViews extends Component {
             return (
               <EventFormEdit
                 {...props}
-                  updateAPI={this.updateAPI}
+                  updateAPIEvent={this.updateAPIEvent}
               />
             );
           }}
