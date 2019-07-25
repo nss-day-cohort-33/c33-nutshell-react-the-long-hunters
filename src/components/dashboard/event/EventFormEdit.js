@@ -56,9 +56,9 @@ export default class EventFormEdit extends Component {
                 <GridColumn position="center">
                 <Header>Add Event</Header>
                 <Form onSubmit={this.updateExistingEvent}>
-                <Form.Input onChange={this.handleFieldChange} id="event_name" icon='lock' iconPosition='left' label='Event Name' value={this.state.event_name} />
-                <Form.Input onChange={this.handleFieldChange} id="event_date" icon='lock' iconPosition='left' label='Date' type='date' value={this.state.event_date}/>
-                <Form.Input onChange={this.handleFieldChange} id="event_location" icon='lock' iconPosition='left' label='Location' type='event_location' value={this.state.event_location}/>
+                <Form.Input onChange={this.handleFieldChange} id="event_name" label='Event Name' value={this.state.event_name} />
+                <Form.Input onChange={this.handleFieldChange} id="event_date" label='Date' type='date' value={this.state.event_date}/>
+                <Form.Input onChange={this.handleFieldChange} id="event_location" label='Location' type='event_location' value={this.state.event_location}/>
                 <Button content='Update' primary />
                 </Form>
                 </GridColumn>

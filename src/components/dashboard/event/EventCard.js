@@ -10,8 +10,6 @@ export default class EventCard extends Component {
 
     render() {
         return (
-          // <List.Item key={this.props.event.id}>
-          //   <List.Icon name='github' size='large' verticalAlign='middle' />
             <List.Content>
               <List.Header as='a'>{this.props.event.event_name}</List.Header>
               <List.Description as='a'>
@@ -29,7 +27,6 @@ export default class EventCard extends Component {
                 );
               }} />
             </List.Content>
-          // </List.Item>
         )
     }
 }
