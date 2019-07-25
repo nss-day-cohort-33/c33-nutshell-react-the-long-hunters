@@ -1,5 +1,5 @@
 import  React, { Component } from "react"
-import { Container, Button, Comment, Form, Header, Icon, Input } from 'semantic-ui-react'
+import { Container, Button, Comment, Form, Header, Icon, Input, Feed } from 'semantic-ui-react'
 import MessageCard from "./MessageCard"
 import "./Message.css"
 import APIManager from "../modules/APIManager";
@@ -42,7 +42,7 @@ export default class MessageComponent extends Component {
         // console.log(this.state.userId)
         return (
             <React.Fragment>
-                <section className="messages">
+                <Feed className="messages">
                 {
                     this.props.messages.map(message =>
                         <MessageCard key={message.id} {...this.props}
@@ -78,7 +78,7 @@ export default class MessageComponent extends Component {
                     //      </div>
                 // )
                 }
-                </section>
+                </Feed>
 
                     <Input name="message" id='message' onChange={this.handleFieldChange} />
                     {/* <Icon edit onClick={this.postNewMessage} content='Send' labelPosition='left' size="small" /> */}

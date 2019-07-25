@@ -10,7 +10,7 @@ export default class Dashboard extends Component{
             <Grid columns={4} relaxed='very' stackable>
             <Grid.Column>
               <Header>Chat</Header>
-               <Container className="messages">
+               <Container className="messages-dashboard">
                  {/* <MessageComponent
                       messages={this.props.messages}
                       messageId={this.messageId}
