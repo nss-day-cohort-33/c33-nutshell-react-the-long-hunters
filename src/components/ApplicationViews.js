@@ -71,7 +71,7 @@ export default class ApplicationViews extends Component {
           }} />
         <Route
           exact path="/" render={props => {
-            return <Dashboard {...props} messages={this.state.messages} tasks={this.state.tasks} addToAPI={this.addToAPI} deleteFromAPI={this.deleteFromAPI}/>
+            return <Dashboard {...props} messages={this.state.messages} tasks={this.state.tasks} addToAPI={this.addToAPI} deleteFromAPI={this.deleteFromAPI} updateAPI={this.updateAPI}/>
           }}
         />
 

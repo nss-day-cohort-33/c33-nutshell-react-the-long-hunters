@@ -77,6 +77,7 @@ export default class Dashboard extends Component{
                   key={this.props.tasks.id}
                   tasks={this.props.tasks}
                   deleteFromAPI={this.deleteFromAPI}
+                  updateAPI={this.updateAPI}
                   {...this.props}
                 />
               </Container>
