@@ -9,8 +9,7 @@ export default class TaskList extends Component {
         userId: "",
         task: "",
         date_due: "",
-        completed: "",
-        open: false,
+        completed: ""
       };
       
       handleFieldChange = (event) => {
@@ -19,24 +18,19 @@ export default class TaskList extends Component {
         this.setState(stateToChange)
       };
   
-        handleOpen = () => {
-          this.setState({ open: true })
-      };
-  
       handleEditTask = (evt) => {
         evt.preventDefault();
-        console.log(this.props.task.id)
           const editedTask = {
             id: this.props.task.id,
             userId: parseInt(sessionStorage.getItem("id")),
             task: this.state.task,
             date_due: this.state.date_due,
-            completed: false
+            completed: false,
           };
   
           this.props
           .updateAPI(editedTask, "tasks")
-          .then(() => this.setState({ open: false }))     
+          .then(() => this.props.handleClose())     
       }
     
   

@@ -34,7 +34,7 @@ export default Object.create(null, {
 },
   put: {
     value: function(editedObj, entity){
-    return fetch(`${remoteURL}/${entity}/${editedObj.Id}`, {
+    return fetch(`${remoteURL}/${entity}/${editedObj.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
