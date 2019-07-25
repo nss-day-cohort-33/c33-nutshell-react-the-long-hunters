@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Dashboard from "./dashboard/Dashboard";
 import APIManager from "./modules/APIManager";
 import Login from "./authentication/Login"
+import MessageComponent from "./message/MessageComponent"
 
 export default class ApplicationViews extends Component {
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null
@@ -49,7 +50,7 @@ export default class ApplicationViews extends Component {
  APIManager.delete(item, resource)
    .then(APIManager.all(resource))
    .then(item => {
-     this.props.history.push(`/${resource}`);
+    //  this.props.history.push(`/${resource}`);
      this.setState({ [resource]: item });
    });
 
@@ -69,7 +70,7 @@ export default class ApplicationViews extends Component {
         <Route path="/login" render={props => { return <Login {...props} users={this.state.users} addUser={this.addToAPI} /> }} />
         <Route
           exact path="/" render={props => {
-            return <Dashboard messages={this.state.messages}/>
+            return <Dashboard {...props} messages={this.state.messages} addToAPI={this.addToAPI}/>
           }}
         />
 
@@ -82,8 +83,17 @@ export default class ApplicationViews extends Component {
 
         <Route
           path="/messages" render={props => {
-            return null
-            // Remove null and return the component which will show the messages
+            let messageId = this.state.messages.find(message =>
+              message.id === parseInt(props.match.params.messageId)
+          )
+            return <MessageComponent {...props}
+              messages={this.state.messages}
+              messageId={this.messageId}
+              users={this.state.users}
+              addToAPI={this.addToAPI}
+              deleteFromAPI={this.deleteFromAPI}
+              updateAPI={this.updateAPI}
+              />
           }}
         />
 

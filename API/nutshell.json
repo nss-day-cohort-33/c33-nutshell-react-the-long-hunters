@@ -34,9 +34,24 @@
   ],
   "messages": [
     {
-      "userId": "1",
+      "userId": 1,
       "message": "this is the best social media app ever!!!",
       "id": 1
+    },
+    {
+      "userId": 1,
+      "message": "hey, kids!",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "message": "hey",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "message": "hey",
+      "id": 4
     }
   ],
   "tasks": [

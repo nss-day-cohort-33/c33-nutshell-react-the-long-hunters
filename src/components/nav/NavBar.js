@@ -18,7 +18,7 @@ handleLogout = (event)=>{
     render() {
         return (
 
-        <Menu fixed='top' inverted>
+        <Menu inverted>
             <Container>
                 <Menu.Item as={Link} to="/" header>
                 <Image size='mini' src={acorn} style={{ marginRight: '1.5em' }} />Dashboard

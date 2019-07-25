@@ -12,7 +12,7 @@ export default Object.create(null, {
     }
   },
   delete: {
-    value: function(entity, id) {
+    value: function(id, entity) {
       return fetch(`${remoteURL}/${entity}/${id}`, {
         method: "DELETE"
       })

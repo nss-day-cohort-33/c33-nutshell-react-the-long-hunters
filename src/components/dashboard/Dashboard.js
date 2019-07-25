@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button, Grid, Segment, Header, Container } from 'semantic-ui-react'
+import { Button, Grid, Segment, Header, Container, Form } from 'semantic-ui-react'
+import MessageComponent from "../message/MessageComponent"
 import "./Dashboard.css"
 
 export default class Dashboard extends Component{
@@ -9,8 +10,17 @@ export default class Dashboard extends Component{
             <Grid columns={4} relaxed='very' stackable>
             <Grid.Column>
               <Header>Chat</Header>
-              <Container>
-              </Container>
+              {/* <Container className="messages">
+                  {
+                    this.props.messages.map(message =>
+                        <MessageComponent key={message.id} message={message} {...this.props} />
+                    )
+                  }
+                  <Form reply>
+                    <Form.TextArea />
+                    <Button onClick={this.postNewMessage} content='Send' labelPosition='left' icon='edit' primary />
+                  </Form>
+              </Container> */}
             </Grid.Column>
             <Grid.Column>
               <Header>Events</Header>
