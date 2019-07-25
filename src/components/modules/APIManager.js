@@ -12,7 +12,7 @@ export default Object.create(null, {
     }
   },
   delete: {
-    value: function(entity, id) {
+    value: function(id, entity) {
       return fetch(`${remoteURL}/${entity}/${id}`, {
         method: "DELETE"
       })
@@ -42,5 +42,12 @@ export default Object.create(null, {
       body: JSON.stringify(editedObj)
     }).then(data => data.json());
   }
+},
+getDatesFromApi: {
+    value: function (database) {
+  // ADD SORT BY DATE [&_sort=event_date&_order=asc]
+  return fetch(`${remoteURL}/${database}?_sort=event_date&_order=asc`)
+  .then(data => data.json())
 }
+},
 });
