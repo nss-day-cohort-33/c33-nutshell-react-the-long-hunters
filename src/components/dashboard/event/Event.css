@@ -1,3 +1,4 @@
-.div.column {
-    margin-top: 500px;
+.div.column:first-child {
+    background-color: lightseagreen;
+    font-style: bold;
 }

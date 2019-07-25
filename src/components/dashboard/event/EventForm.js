@@ -43,9 +43,9 @@ export default class EventForm extends Component {
                     <GridColumn position="center">
                     <Header>Add Event</Header>
                     <Form onSubmit={this.constructNewEvent}>
-                    <Form.Input onChange={this.handleFieldChange} id="event_name" icon='lock' iconPosition='left' label='Event Name' />
-                    <Form.Input onChange={this.handleFieldChange} id="event_date" icon='lock' iconPosition='left' label='Date' type='date' />
-                    <Form.Input onChange={this.handleFieldChange} id="event_location" icon='lock' iconPosition='left' label='Location' type='event_location' />
+                    <Form.Input onChange={this.handleFieldChange} id="event_name" label='Event Name' />
+                    <Form.Input onChange={this.handleFieldChange} id="event_date" label='Date' type='date' />
+                    <Form.Input onChange={this.handleFieldChange} id="event_location" label='Location' type='event_location' />
                     <Button content='Add' primary />
                     </Form>
                     </GridColumn>
