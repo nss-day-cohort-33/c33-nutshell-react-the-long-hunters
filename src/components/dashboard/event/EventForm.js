@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, Grid, Segment, GridColumn } from 'semantic-ui-react'
+import { Button, Form, Grid, Segment, GridColumn,Header } from 'semantic-ui-react'
 import "./Event.css"
 
 //Coded by Krystal
@@ -41,6 +41,7 @@ export default class EventForm extends Component {
             <Segment>
                 <Grid columns={1} relaxed='very' stackable >
                     <GridColumn position="center">
+                    <Header>Add Event</Header>
                     <Form onSubmit={this.constructNewEvent}>
                     <Form.Input onChange={this.handleFieldChange} id="event_name" icon='lock' iconPosition='left' label='Event Name' />
                     <Form.Input onChange={this.handleFieldChange} id="event_date" icon='lock' iconPosition='left' label='Date' type='date' />

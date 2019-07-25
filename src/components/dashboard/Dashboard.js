@@ -4,7 +4,8 @@ import "./Dashboard.css"
 import EventCard from "./event/EventCard.js"
 
 export default class Dashboard extends Component{
-    render(){
+  render(){
+    console.log(this.props.events)
         return(
             <Segment placeholder className="dashboard">
             <Grid columns={4} relaxed='very' stackable>

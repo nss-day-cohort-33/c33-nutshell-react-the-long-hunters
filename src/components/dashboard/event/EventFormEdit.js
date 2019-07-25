@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, Grid, Segment, GridColumn } from 'semantic-ui-react'
+import { Button, Form, Grid, Segment, GridColumn, Header } from 'semantic-ui-react'
 import "./Event.css"
 import APIManager from "../../modules/APIManager"
 
@@ -27,6 +27,7 @@ export default class EventFormEdit extends Component {
         } else {
           const editedEvent = {
             id: this.props.match.params.eventId,
+            userId: this.state.userId,
             event_name: this.state.event_name,
             event_date: this.state.event_date,
             event_location: this.state.event_location
@@ -41,6 +42,7 @@ export default class EventFormEdit extends Component {
         APIManager.get("events", this.props.match.params.eventId)
         .then(event => {
           this.setState({
+            userId: event.userId,
             event_name: event.event_name,
             event_date: event.event_date,
             event_location: event.event_location
@@ -52,6 +54,7 @@ export default class EventFormEdit extends Component {
             <Segment>
             <Grid columns={1} relaxed='very' stackable >
                 <GridColumn position="center">
+                <Header>Add Event</Header>
                 <Form onSubmit={this.updateExistingEvent}>
                 <Form.Input onChange={this.handleFieldChange} id="event_name" icon='lock' iconPosition='left' label='Event Name' value={this.state.event_name} />
                 <Form.Input onChange={this.handleFieldChange} id="event_date" icon='lock' iconPosition='left' label='Date' type='date' value={this.state.event_date}/>
