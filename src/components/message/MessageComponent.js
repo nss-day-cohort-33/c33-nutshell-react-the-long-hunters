@@ -6,11 +6,11 @@ import APIManager from "../modules/APIManager";
 
 export default class MessageComponent extends Component {
 
-    state = {
-        userId: null,
-        message: "",
-        hidden: true
-    }
+    // state = {
+    //     userId: null,
+    //     message: "",
+    //     hidden: true
+    // }
 
     handleFieldChange = event => {
         const stateToChange = {};
@@ -28,7 +28,7 @@ export default class MessageComponent extends Component {
     }
 
     componentDidMount() {
-        APIManager.get("messages", this.props.match.params.messageId )
+        APIManager.get("messages", this.props.messages )
         .then(message => {
             this.setState({
                 userId: message.userId,
@@ -36,8 +36,6 @@ export default class MessageComponent extends Component {
             })
         })
     }
-
-
 
     render () {
         // console.log(this.props.messages)
@@ -49,10 +47,11 @@ export default class MessageComponent extends Component {
                     this.props.messages.map(message =>
                         <MessageCard key={message.id} {...this.props}
                             message={message}
-                            handleEditButton={this.handleEditButton}
-                            handleFieldChange={this.handleFieldChange}
-                            editMessage={this.editMessage}
-                            hidden={this.state.hidden}  />
+                            // handleEditButton={this.handleEditButton}
+                            // handleFieldChange={this.handleFieldChange}
+                            // editMessage={this.editMessage}
+                            // hidden={this.state.hidden}
+                            />
                     )
                     // this.props.messages.map(message =>
                     //     // if (this.state)
@@ -82,6 +81,7 @@ export default class MessageComponent extends Component {
                 </section>
 
                     <Input name="message" id='message' onChange={this.handleFieldChange} />
+                    {/* <Icon edit onClick={this.postNewMessage} content='Send' labelPosition='left' size="small" /> */}
                     <Button onClick={this.postNewMessage} content='Send' labelPosition='left' size="small"></Button>
 
             </React.Fragment>
