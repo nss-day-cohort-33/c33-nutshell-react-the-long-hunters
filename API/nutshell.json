@@ -61,18 +61,32 @@
       "id": 3
     },
     {
-      "userId": "5",
+      "userId": 5,
       "task": "paint garage",
       "date_due": "2019-07-26",
       "completed": false,
       "id": 4
     },
     {
-      "userId": "5",
-      "task": "High five Krystal again",
-      "date_due": "2019-07-25",
+      "userId": 1,
+      "task": "Take out trash",
+      "date_due": "2019-07-27",
       "completed": false,
-      "id": 5
+      "id": 6
+    },
+    {
+      "userId": 5,
+      "task": "Take out trash",
+      "date_due": "2019-07-26",
+      "completed": false,
+      "id": 7
+    },
+    {
+      "userId": 5,
+      "task": "Bottle Up Your Feelings",
+      "date_due": "2019-07-26",
+      "completed": false,
+      "id": 8
     }
   ],
   "events": [

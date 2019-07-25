@@ -34,7 +34,7 @@ export default Object.create(null, {
 },
   put: {
     value: function(editedObj, entity){
-    return fetch(`${remoteURL}/${entity}/${editedObj.id}`, {
+    return fetch(`${remoteURL}/${entity}/${editedObj.Id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -42,5 +42,12 @@ export default Object.create(null, {
       body: JSON.stringify(editedObj)
     }).then(data => data.json());
   }
+},
+getDatesFromApi: {
+    value: function (database) {
+  // ADD SORT BY DATE [&_sort=event_date&_order=asc]
+  return fetch(`${remoteURL}/${database}?_sort=event_date&_order=asc`)
+  .then(data => data.json())
 }
+},
 });
