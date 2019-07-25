@@ -6,6 +6,11 @@ import APIManager from "../modules/APIManager";
 import "./Message.css"
 export default class MessageCard extends Component {
 
+    state = {
+
+        hidden: true
+    }
+
     handleFieldChange = event => {
         const stateToChange = {};
         stateToChange[event.target.id] = event.target.value;
@@ -14,7 +19,7 @@ export default class MessageCard extends Component {
 
 handleEditButton = event => {
     console.log("edit clicked")
-    this.setState( {hidden: !this.props.hidden} )
+    this.setState( {hidden: !this.state.hidden} )
 }
 
 editMessage = event => {
@@ -50,11 +55,11 @@ editMessage = event => {
                             </strong>
                         )
                 }
-                <div className="form-group" hidden = {this.props.hidden}>
-                    <Input fluid type="text" required className="form-control" onChange={this.props.handleFieldChange} id="message" value = {this.props.message.message} />
+                <div className="form-group" hidden = {(this.state.hidden)? "disabled" : ""}>
+                    <Input fluid type="text" required className="form-control" onChange={this.handleFieldChange} id="message" value = {this.props.message.message} />
                     <Button type="submit" onClick={this.editMessage} className="btn btn-primary" size="tiny">Save</Button>
                 </div>
-                <Comment.Text hidden = {!this.props.hidden}>{this.props.message.message}</Comment.Text>
+                <Comment.Text hidden = {(this.state.hidden)? "" : "disabled"}>{this.props.message.message}</Comment.Text>
                 <Button onClick={() => this.props.deleteFromAPI(this.props.message.id, "messages")}
                             icon="delete" size="mini"></Button>
                 <Button onClick={this.handleEditButton} icon="edit" size="mini"></Button>
