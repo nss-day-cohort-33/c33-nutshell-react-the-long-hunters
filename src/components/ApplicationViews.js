@@ -51,7 +51,7 @@ export default class ApplicationViews extends Component {
    .then(item => {
     //  this.props.history.push(`/`);
      this.setState({ [resource]: item });
-   });
+   }); //SN
 
    updateAPI = (item, resource) => {
     return APIManager.put(item, resource)
@@ -71,8 +71,9 @@ export default class ApplicationViews extends Component {
           }} />
         <Route
           exact path="/" render={props => {
+            // SN
             return <Dashboard {...props} messages={this.state.messages} tasks={this.state.tasks} addToAPI={this.addToAPI} deleteFromAPI={this.deleteFromAPI} updateAPI={this.updateAPI}/>
-          }}
+          }} // SN
         />
 
         <Route

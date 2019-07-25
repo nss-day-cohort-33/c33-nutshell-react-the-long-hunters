@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Button, Grid, Segment, Header, Container, Modal, Form } from 'semantic-ui-react'
+import { Button, Grid, Segment, Header, Container, Modal, Form } from 'semantic-ui-react' /*SN*/
 import "./Dashboard.css"
 import TaskList from "../task/TaskList";
 
 export default class Dashboard extends Component{
 
-  state = {
+  state = {  /*SN*/
     userId: "",
     task: "",
     date_due: "",
@@ -13,17 +13,18 @@ export default class Dashboard extends Component{
     open: false
   };
   
-  handleFieldChange = (event) => {
+  handleFieldChange = (event) => {  /*SN*/
     const stateToChange = {};
     stateToChange[event.target.id] = event.target.value
     this.setState(stateToChange)
   };
 
-    handleOpen = () => {
+    handleOpen = () => {  /*SN*/
       this.setState({ open: true })
   }
 
-  handleAddTask = evt => {
+  /*SN*/
+  handleAddTask = evt => { /*SN*/
     evt.preventDefault();
     if (this.state.task === "") {
       window.alert("Please name your task.")
@@ -39,7 +40,7 @@ export default class Dashboard extends Component{
         .addToAPI(newTask, "tasks")
         .then(() => this.setState({ open: false }))
   }
-}
+} /*SN*/
 
   render() {
         return(
@@ -61,7 +62,7 @@ export default class Dashboard extends Component{
               <Container>
               </Container>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column>{/*SN*/}
               <Header>Tasks</Header> <Modal trigger={<Button content='Add' icon='plus square outline' size='mini' onClick={this.handleOpen} />} open={this.state.open}>
               <Modal.Header>Add A Task</Modal.Header>
               <Modal.Content>
@@ -79,7 +80,7 @@ export default class Dashboard extends Component{
                   deleteFromAPI={this.deleteFromAPI}
                   updateAPI={this.updateAPI}
                   {...this.props}
-                />
+                /> {/*SN*/}
               </Container>
             </Grid.Column>
             </Grid>
