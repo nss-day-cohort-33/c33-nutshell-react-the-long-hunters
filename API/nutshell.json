@@ -29,6 +29,12 @@
       "email": "ter@gmail.com",
       "password": "tip",
       "id": 5
+    },
+    {
+      "user_name": "Mo",
+      "email": "Mo@gmail.com",
+      "password": "mo",
+      "id": 6
     }
   ],
   "friends": [
@@ -47,11 +53,11 @@
   ],
   "tasks": [
     {
+      "id": 1,
       "userId": 1,
-      "task": "Mow the lawn",
+      "task": "Mow the lawn!",
       "date_due": "2019-07-16",
-      "complete": false,
-      "id": 1
+      "completed": false
     },
     {
       "userId": 1,
@@ -91,21 +97,51 @@
   ],
   "events": [
     {
-      "userId": 1,
-      "event_name": "4th of July party",
-      "event_date": "2019-07-04",
-      "event_location": "Downtown",
-      "id": 1
+      "id": 2,
+      "userId": 6,
+      "event_name": "My daughter presents her Nutshell",
+      "event_date": "2019-07-26",
+      "event_location": "NSS"
+    },
+    {
+      "id": 4,
+      "userId": 6,
+      "event_name": "My baby graduates from NSS-bring on the tears!",
+      "event_date": "2019-11-08",
+      "event_location": "NSS"
+    },
+    {
+      "userId": 6,
+      "event_name": "Yo Momma Can Dance",
+      "event_date": "2019-07-25",
+      "event_location": "Broadway",
+      "id": 5
     }
   ],
   "news": [
     {
-      "userId": 1,
+      "id": 1,
+      "userId": 6,
       "news_url": "https://www.newser.com/story/269443/turns-out-a-cop-station-is-a-bad-place-to-steal-a-bike.html",
-      "news_title": "Alleged Theft at Cop Station Goes as Well as You'd Expect",
+      "news_title": "Alleged Theft at Cop Station Goes as Well as You'd Expect!",
       "news_synopsis": "Would-be bike thief caught within seconds: police",
-      "news_time": 1562693385246,
-      "id": 1
+      "news_time": 1564085278141
+    },
+    {
+      "userId": 6,
+      "news_url": "http://www.thecreativemom.com/mom-articles/",
+      "news_title": "Mom Things",
+      "news_synopsis": "How to be a creative mom",
+      "news_time": 1564084862502,
+      "id": 2
+    },
+    {
+      "userId": 6,
+      "news_url": "https://www.feedspot.com/infiniterss.php?q=site:http%3A%2F%2Fmylifesuckers.com%2Ffeed",
+      "news_title": "Mom Suckers Blog",
+      "news_synopsis": "How to deal with everyday struggles and enjoying your life at the same time",
+      "news_time": 1564085980364,
+      "id": 3
     }
   ]
 }

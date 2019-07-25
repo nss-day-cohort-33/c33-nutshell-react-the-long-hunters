@@ -3,6 +3,7 @@ import { Button, Grid, Segment, Header, Container, Modal, Form, List } from 'sem
 import "./Dashboard.css"
 import TaskList from "../task/TaskList";
 import EventCard from "./event/EventCard.js"
+import NewsCard from "./news/NewsCard.js"
 
 export default class Dashboard extends Component{
 
@@ -52,7 +53,7 @@ export default class Dashboard extends Component{
               <Container>
               </Container>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column className="eventsColumn">
               <Header textAlign='center'>Events</Header>
                 <Button content='Add Event' icon='plus square outline' position= 'center' size='mini' onClick={()=> this.props.history.push("/events/new")} />
                 <List divided relaxed>
@@ -60,7 +61,7 @@ export default class Dashboard extends Component{
             this.props.events
             .map(event => (
               <List.Item key={event.id} className="event">
-              <List.Icon name='github' size='large' verticalAlign='middle' />
+              <List.Icon name='calendar times outline' size='large' verticalAlign='middle' />
                 <EventCard
                     event={event}
                     {...this.props}
@@ -71,9 +72,21 @@ export default class Dashboard extends Component{
               </List>
             </Grid.Column>
             <Grid.Column>
-              <Header>News</Header> <Button content='Add' icon='plus square outline' size='mini' />
-              <Container>
-              </Container>
+              <Header textAlign="center">News</Header> <Button content='Add Article' icon='plus square outline' size='mini' onClick={()=> this.props.history.push("/news/new")} />
+              <List divided relaxed>
+              {
+            this.props.news
+            .map(article => (
+              <List.Item key={article.id} className="news">
+              <List.Icon name='newspaper outline' size='large' verticalAlign='middle' />
+                <NewsCard
+                    article={article}
+                    {...this.props}
+                />
+                </List.Item>
+            ))
+              }
+              </List>
             </Grid.Column>
             <Grid.Column>{/*SN*/}
               <Header>Tasks</Header> <Modal trigger={<Button content='Add' icon='plus square outline' size='mini' onClick={this.handleOpen} />} open={this.state.open}>
