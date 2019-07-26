@@ -46,9 +46,49 @@
   ],
   "messages": [
     {
-      "userId": "1",
-      "message": "this is the best social media app ever!!!",
-      "id": 1
+      "id": 1,
+      "userId": 1,
+      "message": "this is the best social media app ever!!"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "message": "hey, kids!"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "message": "hey"
+    },
+    {
+      "userId": 3,
+      "message": "hello",
+      "id": 4
+    },
+    {
+      "userId": 3,
+      "message": "it's me",
+      "id": 5
+    },
+    {
+      "userId": 3,
+      "message": "fdafa",
+      "id": 6
+    },
+    {
+      "userId": 3,
+      "message": "hello",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "message": "hey",
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "message": "hey",
+      "id": 9
     }
   ],
   "tasks": [
@@ -98,20 +138,20 @@
   "events": [
     {
       "id": 2,
-      "userId": 6,
+      "userId": 1,
       "event_name": "My daughter presents her Nutshell",
       "event_date": "2019-07-26",
       "event_location": "NSS"
     },
     {
       "id": 4,
-      "userId": 6,
+      "userId": 1,
       "event_name": "My baby graduates from NSS-bring on the tears!",
       "event_date": "2019-11-08",
       "event_location": "NSS"
     },
     {
-      "userId": 6,
+      "userId": 1,
       "event_name": "Yo Momma Can Dance",
       "event_date": "2019-07-25",
       "event_location": "Broadway",
@@ -121,14 +161,14 @@
   "news": [
     {
       "id": 1,
-      "userId": 6,
+      "userId": 1,
       "news_url": "https://www.newser.com/story/269443/turns-out-a-cop-station-is-a-bad-place-to-steal-a-bike.html",
       "news_title": "Alleged Theft at Cop Station Goes as Well as You'd Expect!",
       "news_synopsis": "Would-be bike thief caught within seconds: police",
       "news_time": 1564085278141
     },
     {
-      "userId": 6,
+      "userId": 1,
       "news_url": "http://www.thecreativemom.com/mom-articles/",
       "news_title": "Mom Things",
       "news_synopsis": "How to be a creative mom",
@@ -136,7 +176,7 @@
       "id": 2
     },
     {
-      "userId": 6,
+      "userId": 1,
       "news_url": "https://www.feedspot.com/infiniterss.php?q=site:http%3A%2F%2Fmylifesuckers.com%2Ffeed",
       "news_title": "Mom Suckers Blog",
       "news_synopsis": "How to deal with everyday struggles and enjoying your life at the same time",

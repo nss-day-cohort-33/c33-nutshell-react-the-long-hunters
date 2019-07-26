@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Dashboard from "./dashboard/Dashboard";
 import APIManager from "./modules/APIManager";
 import Login from "./authentication/Login"
+// import MessageComponent from "./message/MessageComponent"
 import EventFormEdit from "./dashboard/event/EventFormEdit";
 import EventForm from "./dashboard/event/EventForm"
 import NewsForm from "./dashboard/news/NewsForm"
@@ -100,8 +101,8 @@ export default class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
-        <Route path="/login" render={props => { 
-          return <Login {...props} users={this.state.users} addUser={this.addToAPI} /> 
+        <Route path="/login" render={props => {
+          return <Login {...props} users={this.state.users} addUser={this.addToAPI} />
           }} />
         <Route
           exact path="/" render={props =>{
@@ -109,9 +110,9 @@ export default class ApplicationViews extends Component {
               let events = this.state.events.filter((event => event.userId === parseInt(sessionStorage.getItem("id"))))
               let tasks = this.state.tasks.filter((task => task.userId === parseInt(sessionStorage.getItem("id"))))
               let news = this.state.news.filter((news=> news.userId === parseInt(sessionStorage.getItem("id")))).sort((a,b) => a.news_time - b.news_time)
-              return <Dashboard {...props} messages={this.state.messages}
+              return <Dashboard {...props} messages={this.state.messages} users={this.state.users}
               events={events} news={news} deleteFromAPI={this.deleteFromAPI} tasks={tasks} addToAPI={this.addToAPI} updateAPI={this.updateAPI} deleteFromAPIEvent={this.deleteFromAPIEvent}/>
-    
+
           }else {
             return <Redirect to="./login" />;
           }}}
