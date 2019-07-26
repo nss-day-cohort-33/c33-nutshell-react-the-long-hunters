@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Dashboard from "./dashboard/Dashboard";
 import APIManager from "./modules/APIManager";
 import Login from "./authentication/Login"
-import MessageComponent from "./message/MessageComponent"
+// import MessageComponent from "./message/MessageComponent"
 import EventFormEdit from "./dashboard/event/EventFormEdit";
 import EventForm from "./dashboard/event/EventForm"
 import NewsForm from "./dashboard/news/NewsForm"
