@@ -43,11 +43,11 @@ export default Object.create(null, {
     }).then(data => data.json());
   }
 },
-getDatesFromApi: {
+  getDatesFromApi: {
     value: function (database) {
-  // ADD SORT BY DATE [&_sort=event_date&_order=asc]
-  return fetch(`${remoteURL}/${database}?_sort=event_date&_order=asc`)
-  .then(data => data.json())
-}
-},
+    // ADD SORT BY DATE [&_sort=event_date&_order=asc]
+    return fetch(`${remoteURL}/${database}?_sort=event_date&_order=asc`)
+    .then(data => data.json())
+    }
+  }
 });

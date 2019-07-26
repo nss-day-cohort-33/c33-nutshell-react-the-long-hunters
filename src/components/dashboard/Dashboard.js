@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+import MessageComponent from "../message/MessageComponent"
 import { Button, Grid, Segment, Header, Container, Modal, Form, List } from 'semantic-ui-react' /*SN*/
 import "./Dashboard.css"
 import TaskList from "../task/TaskList";
@@ -14,7 +16,7 @@ export default class Dashboard extends Component{
     completed: "",
     open: false
   };
-  
+
   handleFieldChange = (event) => {  /*SN*/
     const stateToChange = {};
     stateToChange[event.target.id] = event.target.value
@@ -54,7 +56,23 @@ export default class Dashboard extends Component{
             <Grid columns={4} relaxed='very' stackable>
             <Grid.Column>
               <Header>Chat</Header>
-              <Container>
+               <Container className="messages-dashboard">
+                 <MessageComponent {...this.props}
+                      messages={this.props.messages}
+                      // messageId={this.props.messageId}
+                      users={this.props.users}
+                      addToAPI={this.props.addToAPI}
+                      deleteFromAPI={this.props.deleteFromAPI}
+                      updateAPI={this.props.updateAPI} />
+                  {/* {
+                    this.props.messages.map(message =>
+                        <MessageComponent key={message.id} message={message} {...this.props} />
+                    )
+                  }
+                  <Form reply>
+                    <Form.TextArea />
+                    <Button onClick={this.postNewMessage} content='Send' labelPosition='left' icon='edit' primary />
+                  </Form> */}
               </Container>
             </Grid.Column>
             <Grid.Column className="eventsColumn">

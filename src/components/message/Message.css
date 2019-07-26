@@ -1,0 +1,17 @@
+.send-message {
+    display: flex;
+    flex-direction: row
+}
+
+.comment-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+.button-div {
+    display: flex;
+    flex-flow: row wrap;
+    border: 10px
+
+}
