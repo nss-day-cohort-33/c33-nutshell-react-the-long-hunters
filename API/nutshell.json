@@ -57,7 +57,7 @@
       "userId": 1,
       "task": "Mow the lawn!",
       "date_due": "2019-07-16",
-      "completed": true
+      "completed": false
     },
     {
       "id": 3,

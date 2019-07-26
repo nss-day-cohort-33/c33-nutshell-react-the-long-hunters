@@ -24,43 +24,19 @@ export default class TaskList extends Component {
     handleClose = () => {
         this.setState({ open: false })
       };
-    
-    toggleCompleted = () => {
-    
-        const editedComplete = {
-            id: this.state.id,
-            userId: parseInt(sessionStorage.getItem("id")),
-            task: this.state.task,
-            date_due: this.state.date_due,
-            completed: this.state.completed
-          };
-  
-          this.props
-          .updateAPI(editedComplete, "tasks")   
+
+    toggleCompleted = (task) => {
+        task.completed = !task.completed
+          this.props.updateAPI(task, "tasks") 
           .then(() => this.props.history.push("/"));  
       }
-
-    componentDidMount() {
-        APIManager.get("tasks", this.props.task.id)
-        .then(task => {
-          this.setState({
-            id: task.id,
-            userId: parseInt(sessionStorage.getItem("id")),
-            task: task.task,
-            date_due: task.date_due,
-            completed: task.completed
-          })
-        })
-      }
-    
-  
   
     render() {
         return (
             <React.Fragment>
-                <List divided relaxed className={this.state.completed === true? 'done' : 'nope'}>
+                <List divided relaxed>
                     <List.Item key={this.props.task.id} className="card">
-                        <Checkbox size='large' verticalalign='middle' onClick=
+                        <Checkbox size='large' verticalalign='middle'onClick={()=>this.toggleCompleted(this.props.task)} />
                         <List.Content>
                         <List.Header>Task Name: {this.props.task.task}</List.Header>
                         <List.Description>Due: {this.props.task.date_due}</List.Description>
