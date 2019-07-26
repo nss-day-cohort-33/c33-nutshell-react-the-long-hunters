@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { List, Checkbox, Icon, Modal} from 'semantic-ui-react'
 import TaskForm from "../task/TaskForm";
+import "./TaskCard.css"
 import APIManager from "../../components/modules/APIManager"
 
 export default class TaskList extends Component {
@@ -8,11 +9,11 @@ export default class TaskList extends Component {
 
     state = {
         open: false,
-        // id: this.props.task.id,
-        // userId: parseInt(sessionStorage.getItem("id")),
-        // task: this.state.task,
-        // date_due: this.state.date_due,
-        // completed: false,
+        id: "",
+        userId: "",
+        task: "",
+        date_due: "",
+        completed: " ",
       };
   
   
@@ -25,8 +26,13 @@ export default class TaskList extends Component {
       };
     
     toggleCompleted = () => {
+    
         const editedComplete = {
-            completed: false
+            id: this.state.id,
+            userId: parseInt(sessionStorage.getItem("id")),
+            task: this.state.task,
+            date_due: this.state.date_due,
+            completed: this.state.completed
           };
   
           this.props
@@ -38,11 +44,11 @@ export default class TaskList extends Component {
         APIManager.get("tasks", this.props.task.id)
         .then(task => {
           this.setState({
-            id: this.props.task.id,
+            id: task.id,
             userId: parseInt(sessionStorage.getItem("id")),
-            task: this.state.task,
-            date_due: this.state.date_due,
-            completed: false,
+            task: task.task,
+            date_due: task.date_due,
+            completed: task.completed
           })
         })
       }
@@ -52,9 +58,9 @@ export default class TaskList extends Component {
     render() {
         return (
             <React.Fragment>
-                <List divided relaxed>
+                <List divided relaxed className={this.state.completed === true? 'done' : 'nope'}>
                     <List.Item key={this.props.task.id} className="card">
-                        <Checkbox size='large' verticalalign='middle' onClick={this.toggleCompleted}/>
+                        <Checkbox size='large' verticalalign='middle' onClick=
                         <List.Content>
                         <List.Header>Task Name: {this.props.task.task}</List.Header>
                         <List.Description>Due: {this.props.task.date_due}</List.Description>
