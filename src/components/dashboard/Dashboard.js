@@ -27,6 +27,10 @@ export default class Dashboard extends Component{
       this.setState({ open: true })
   }
 
+  handleClose = () => {
+    this.setState({ open: false })
+  };
+
   /*SN*/
   handleAddTask = evt => { /*SN*/
     evt.preventDefault();
@@ -114,6 +118,7 @@ export default class Dashboard extends Component{
                   <Form.Input onChange={this.handleFieldChange} id="task" label='Task' placeholder='ex: Take Out Trash' />
                   <Form.Input onChange={this.handleFieldChange} type="date" id="date_due" label='Date Due' />
                   <Button content='Add' primary onClick={this.handleAddTask} />
+                  <Button content='Cancel' primary onClick={this.handleClose} />
               </Form>
               </Modal.Content>
             </Modal>

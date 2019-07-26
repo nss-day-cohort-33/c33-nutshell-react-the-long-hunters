@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
 import { List, Checkbox, Icon, Modal} from 'semantic-ui-react'
 import TaskForm from "../task/TaskForm";
-import APIManager from "../../components/modules/APIManager"
+import "./TaskCard.css"
+
 
 export default class TaskList extends Component {
 
 
     state = {
         open: false,
-        // id: this.props.task.id,
-        // userId: parseInt(sessionStorage.getItem("id")),
-        // task: this.state.task,
-        // date_due: this.state.date_due,
-        // completed: false,
+        show: "",
+        id: "",
+        userId: "",
+        task: "",
+        date_due: "",
+        completed: " ",
       };
   
   
@@ -23,45 +25,30 @@ export default class TaskList extends Component {
     handleClose = () => {
         this.setState({ open: false })
       };
-    
-    toggleCompleted = () => {
-        const editedComplete = {
-            completed: false
-          };
-  
-          this.props
-          .updateAPI(editedComplete, "tasks")   
-          .then(() => this.props.history.push("/"));  
-      }
 
-    componentDidMount() {
-        APIManager.get("tasks", this.props.task.id)
-        .then(task => {
-          this.setState({
-            id: this.props.task.id,
-            userId: parseInt(sessionStorage.getItem("id")),
-            task: this.state.task,
-            date_due: this.state.date_due,
-            completed: false,
+    toggleCompleted = (task) => {
+        task.completed = !task.completed
+          this.props.updateAPI(task, "tasks") 
+          .then(() => {
+            let className = (this.state.show ? "" : "done")
+            this.setState({show: className})
+            this.props.history.push("/")
           })
-        })
       }
-    
-  
   
     render() {
         return (
             <React.Fragment>
-                <List divided relaxed>
+                <List divided relaxed className={this.state.show}>
                     <List.Item key={this.props.task.id} className="card">
-                        <Checkbox size='large' verticalalign='middle' onClick={this.toggleCompleted}/>
+                        <Checkbox size='large' verticalalign='middle'onClick={()=>this.toggleCompleted(this.props.task)} />
                         <List.Content>
                         <List.Header>Task Name: {this.props.task.task}</List.Header>
                         <List.Description>Due: {this.props.task.date_due}</List.Description>
-                        <Modal trigger={<Icon name='edit' size='tiny' onClick={this.handleOpen} />} open={this.state.open} >
+                        <Modal trigger={<Icon name='edit'  onClick={this.handleOpen} />} open={this.state.open} >
                             <TaskForm key={this.props.task.id} task={this.props.task} updateAPI={this.props.updateAPI} handleClose={this.handleClose} {...this.props}/>
                         </Modal>
-                        <Icon name='trash' size='tiny' onClick={() => this.props.deleteFromAPI(this.props.task.id,"tasks")} />
+                        <Icon name='trash' onClick={() => this.props.deleteFromAPI(this.props.task.id,"tasks")} />
                         </List.Content>
                     </List.Item>
                 </List>

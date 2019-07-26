@@ -55,6 +55,7 @@ export default class TaskList extends Component {
                 <Form.Input onChange={this.handleFieldChange} id="task" label='Task' value={this.state.task} />
                 <Form.Input onChange={this.handleFieldChange} type="date" id="date_due" label='Date Due' value={this.state.date_due} />
                 <Button content='Edit' primary onClick={this.handleEditTask} />
+                <Button content='Cancel' primary onClick={this.props.handleClose} />
             </Form>
             </Modal.Content>
             </React.Fragment>

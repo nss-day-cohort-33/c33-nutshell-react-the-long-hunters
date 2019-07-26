@@ -100,24 +100,24 @@
       "completed": false
     },
     {
+      "id": 3,
       "userId": 1,
       "task": "Call mom",
       "date_due": "2019-07-16",
-      "complete": false,
-      "id": 3
+      "completed": false
     },
     {
+      "id": 6,
       "userId": 1,
       "task": "Take out trash",
       "date_due": "2019-07-27",
-      "completed": false,
-      "id": 6
+      "completed": false
     },
     {
       "userId": 5,
       "task": "Bottle Up Your Feelings",
       "date_due": "2019-07-26",
-      "completed": false,
+      "completed": true,
       "id": 8
     },
     {
