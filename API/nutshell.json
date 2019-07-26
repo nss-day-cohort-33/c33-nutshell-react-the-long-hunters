@@ -117,7 +117,7 @@
       "userId": 5,
       "task": "Bottle Up Your Feelings",
       "date_due": "2019-07-26",
-      "completed": false,
+      "completed": true,
       "id": 8
     },
     {

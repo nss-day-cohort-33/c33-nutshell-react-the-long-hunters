@@ -9,6 +9,7 @@ export default class TaskList extends Component {
 
     state = {
         open: false,
+        show: "",
         id: "",
         userId: "",
         task: "",
@@ -28,13 +29,17 @@ export default class TaskList extends Component {
     toggleCompleted = (task) => {
         task.completed = !task.completed
           this.props.updateAPI(task, "tasks") 
-          .then(() => this.props.history.push("/"));  
+          .then(() => {
+            let className = (this.state.show ? "" : "done")
+            this.setState({show: className})
+            this.props.history.push("/")
+          })
       }
   
     render() {
         return (
             <React.Fragment>
-                <List divided relaxed>
+                <List divided relaxed className={this.state.show}>
                     <List.Item key={this.props.task.id} className="card">
                         <Checkbox size='large' verticalalign='middle'onClick={()=>this.toggleCompleted(this.props.task)} />
                         <List.Content>
