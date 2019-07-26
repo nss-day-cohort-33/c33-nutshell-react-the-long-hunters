@@ -25,6 +25,7 @@ export default class MessageComponent extends Component {
             message: this.state.message
         }
         this.props.addToAPI(message, "messages")
+        this.setState()
     }
 
     componentDidMount() {
