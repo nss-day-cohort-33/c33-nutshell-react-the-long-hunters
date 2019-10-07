@@ -17,4 +17,4 @@ We hope you enjoy our app!
 
 Made with
 - [React](https://reactjs.org/)
-- [Semantic UI React] (https://react.semantic-ui.com/)
+- [Semantic UI React](https://react.semantic-ui.com/)
