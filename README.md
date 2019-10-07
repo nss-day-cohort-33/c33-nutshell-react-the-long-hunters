@@ -1,6 +1,6 @@
 # Nutshell: The Information Dashboard
 
-Nutshell is a social platform for people to organize their daily tasks, events, news article, friends, and chat messages.
+Nutshell is a social platform for people to organize their daily tasks, events, news article, and chat messages.
 
 ### How to get Nutshell working:
 
