@@ -1,4 +1,4 @@
-# Nutshell: The Information Dashboard
+# Nutshell [](/src/components/nav/acorn.svg)
 
 Nutshell is a social platform for people to organize their daily tasks, events, news article, and chat messages.
 
